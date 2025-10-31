@@ -67,7 +67,7 @@ void vision_loop()
         }
         cv::cvtColor(frame_clone, frame_yuyv, cv::COLOR_BGR2YUV_IYUV); // BGR -> YUYV
         // 这就是新的“推流”！
-        writer.write(frame_clone);
+        writer.write(frame_yuyv);
         // =======================================================
 		//图像处理状态机
 		if (VisionTaskState == State::BlueBarrier)
