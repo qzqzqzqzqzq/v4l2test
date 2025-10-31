@@ -45,7 +45,7 @@ void vision_loop()
         static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT))
     );
     // 3. 定义虚拟设备路径 (要和 modprobe 命令一致)
-    std::string device_path = "/dev/video10";
+    std::string device_path = "/dev/video20";
     // 4. 定义输出格式 (YUYV 是v4l2loopback最兼容的格式)
     int fourcc = cv::VideoWriter::fourcc('I', '4', '2', '0');
     // 5. 创建 VideoWriter 对象
