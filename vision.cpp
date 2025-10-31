@@ -51,10 +51,11 @@ void vision_loop()
     // 5. 创建 VideoWriter 对象
     cv::VideoWriter writer;
     // 6. 使用 V4L2 后端打开设备
-    writer.open(device_path, cv::CAP_V4L2, fourcc, 30, frameSize, true);
+    writer.open(device_path,  fourcc, 30, frameSize, true);
     if (!writer.isOpened()) {
         std::cerr << "!!! Fail to open the Virtual camera " << device_path << std::endl;
     }
+    cv::Mat frame_yuyv;
 	while(!allfinishflag.load())
 	{
         
@@ -64,6 +65,7 @@ void vision_loop()
         if (frame_clone.size() != frameSize) {
             cv::resize(frame_clone, frame_clone, frameSize);
         }
+        cv::cvtColor(frame_clone, frame_yuyv, cv::COLOR_BGR2YUV_IYUV); // BGR -> YUYV
         // 这就是新的“推流”！
         writer.write(frame_clone);
         // =======================================================

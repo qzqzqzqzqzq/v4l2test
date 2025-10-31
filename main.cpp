@@ -4,7 +4,6 @@
 
 #include <cmath>
 
-#include "gpio.h"
 #include "motor.h"
 #include "servo.h"
 #include "pid.h"
