@@ -47,7 +47,7 @@ void vision_loop()
     // 3. 定义虚拟设备路径 (要和 modprobe 命令一致)
     std::string device_path = "/dev/video10";
     // 4. 定义输出格式 (YUYV 是v4l2loopback最兼容的格式)
-    int fourcc = cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V');
+    int fourcc = cv::VideoWriter::fourcc('I', '4', '2', '0');
     // 5. 创建 VideoWriter 对象
     cv::VideoWriter writer;
     // 6. 使用 V4L2 后端打开设备
